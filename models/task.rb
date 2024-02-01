@@ -6,21 +6,22 @@ class Task
   end
 
 
-  def add_task(task_name,task)
-
-  raise ArgumentError, 'Nome da tarefa não pode ser vazio' if task_name.nil? || task_name.empty?
-  raise ArgumentError, 'Conteúdo da tarefa não pode ser vazio' if task.nil? || task.empty?
-
-  id = @tasks.length + 1
-  new_task = {id:id,task_name:task_name,task:task,check:false}
-  @tasks << new_task
-  end
 
   def get_all_task
     @tasks
   end
 
-  def find_task_by_id(id)
+  def add_task(task_name,task)
+    raise ArgumentError, 'Nome da tarefa não pode ser vazio' if task_name.nil? || task_name.empty?
+    raise ArgumentError, 'Conteúdo da tarefa não pode ser vazio' if task.nil? || task.empty?
+    id = @tasks.length + 1
+
+    new_task = {id:id,task_name:task_name,task:task,check:false}
+    @tasks << new_task
+    end
+
+
+    def find_task_by_id(id)
 
      raise ArgumentError, "Necessário informar id da tarefa" if id.nil?
 
